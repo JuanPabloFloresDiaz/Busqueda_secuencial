@@ -31,12 +31,6 @@ class ControlAsistencia:
         """
         Realiza búsqueda secuencial en la lista de estudiantes.
         La búsqueda es case-insensitive.
-        
-        Args:
-            nombre_buscado (str): Nombre del estudiante a buscar
-            
-        Returns:
-            tuple: (encontrado: bool, posicion: int or -1)
         """
         nombre_buscado = nombre_buscado.strip().lower()
         
@@ -49,9 +43,6 @@ class ControlAsistencia:
     def contar_busqueda(self, nombre):
         """
         Cuenta las veces que se ha buscado cada estudiante.
-        
-        Args:
-            nombre (str): Nombre del estudiante buscado
         """
         nombre_normalizado = nombre.strip().title()
         if nombre_normalizado in self.conteo_busquedas:
@@ -62,21 +53,18 @@ class ControlAsistencia:
     def agregar_estudiante(self, nombre):
         """
         Agrega un nuevo estudiante a la lista.
-        
-        Args:
-            nombre (str): Nombre del estudiante a agregar
         """
         nombre_formateado = nombre.strip().title()
         if nombre_formateado not in [est.title() for est in self.estudiantes]:
             self.estudiantes.append(nombre_formateado)
             print(f"✓ Estudiante '{nombre_formateado}' agregado a la lista.")
         else:
-            print(f"⚠ El estudiante '{nombre_formateado}' ya está en la lista.")
+            print(f"El estudiante '{nombre_formateado}' ya está en la lista.")
     
     def mostrar_lista_estudiantes(self):
         """Muestra la lista actual de estudiantes ordenada alfabéticamente."""
         print("\n" + "="*50)
-        print("📋 LISTA ACTUAL DE ESTUDIANTES")
+        print("LISTA ACTUAL DE ESTUDIANTES")
         print("="*50)
         
         # Ordenar la lista usando el módulo BubbleSort
@@ -89,7 +77,7 @@ class ControlAsistencia:
     def mostrar_estadisticas(self):
         """Muestra las estadísticas de búsquedas realizadas."""
         print("\n" + "="*60)
-        print("📊 ESTADÍSTICAS DE BÚSQUEDAS")
+        print("ESTADÍSTICAS DE BÚSQUEDAS")
         print("="*60)
         print(f"Total de búsquedas fallidas: {self.busquedas_fallidas}")
         
@@ -149,7 +137,7 @@ class ControlAsistencia:
         
         while True:
             print("\n" + "="*50)
-            print("📚 MENÚ PRINCIPAL")
+            print("MENÚ PRINCIPAL")
             print("="*50)
             print("1. Ver lista de estudiantes")
             print("2. Buscar estudiantes")
@@ -177,7 +165,7 @@ class ControlAsistencia:
             elif opcion == 4:
                 self.mostrar_estadisticas()
             elif opcion == 5:
-                print("\n🎯 RESUMEN FINAL:")
+                print("\n RESUMEN FINAL:")
                 self.mostrar_estadisticas()
                 print("\n¡Gracias por usar el sistema de control de asistencia!")
                 break
@@ -188,9 +176,9 @@ def main():
         sistema = ControlAsistencia()
         sistema.ejecutar()
     except KeyboardInterrupt:
-        print("\n\n⚠ Programa interrumpido por el usuario.")
+        print("\n\n Programa interrumpido por el usuario.")
     except Exception as e:
-        print(f"\n❌ Error inesperado: {e}")
+        print(f"\n Error inesperado: {e}")
         print("Por favor, contacta al administrador del sistema.")
 
 if __name__ == "__main__":
